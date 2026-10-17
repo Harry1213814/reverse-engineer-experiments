@@ -1,0 +1,21 @@
+# Local state and credentials
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+
+# Research artifacts belong to the user's experiment workspace
+outputs/
+checkpoints/
+data/
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+EXPERIMENT_LOG.md
