@@ -3,14 +3,17 @@
 ## Identity and purpose
 
 - Skill name: `reverse-engineer-experiments`.
+- Display title: **Deep Learning Tensor Reverse-Enhancement Skill** / **深度学习 Tensor 逆向增强 Skill**.
 - Repository: <https://github.com/Harry1213814/reverse-engineer-experiments>.
 - Entrypoint: [SKILL.md](SKILL.md), located at repository root.
 - Purpose: a research workflow that starts from experimental differences and uses controlled interventions to guide new module design.
+- Scope: use multiple deep-learning experiments to investigate and enhance candidate beneficial tensor representation structures. General engineering experiments, non-neural model tuning, and rule-based system combinations are out of scope.
+- Meaning of structure: feature distributions, channel/branch relationships, spatiotemporal patterns, and spectra; not programming data structures or memory layouts.
 - License: [MIT](LICENSE).
 - Instruction language: primarily Chinese; the [English overview](README.en.md) summarizes scope and usage.
 - No guarantee: downstream accuracy, generalization, novelty, causal correctness, or even finding an effective candidate.
 
-Relevant discovery terms: experimental reverse engineering, deep-learning ablation, intermediate representations, tensor intervention, frozen checkpoint, feature fusion, evidence-guided module design; 实验逆向、受控干预、消融分析、中间特征、有利 tensor 结构、模块设计。
+Relevant discovery terms: deep-learning tensor reverse enhancement skill, multiple experiments, deep-learning ablation, intermediate representations, tensor intervention, frozen checkpoint, feature fusion, evidence-guided neural module design; 深度学习 Tensor 逆向增强 Skill、多组实验结果、受控干预、消融分析、有利 Tensor 数据结构、神经网络模块设计。
 
 ## Retrieve the complete skill
 
@@ -48,8 +51,9 @@ Read `SKILL.md` as methodological guidance for the user's research task, then lo
 The user can ask:
 
 ```text
-Read this repository's SKILL.md and follow its workflow for my experiment.
+Read this repository's SKILL.md and follow its workflow for my deep-learning experiments.
 The results are at [paths]. The reference checkpoint is [path].
+The tensor layers and axis semantics are [details].
 The primary metric is [metric and aggregation].
 Allowed changes and training are [scope]. Budget is [budget].
 This turn is [planning only / authorized execution].
@@ -59,7 +63,7 @@ intervention results, and unverified module proposals.
 
 ## Apply it honestly
 
-1. Inspect the user's actual artifacts and establish what can be tested. A summary score is not a tensor, and a tensor cache may omit inference state.
+1. First establish that the task concerns a deep-learning model and its tensor representations; do not route general engineering or non-neural optimization tasks to this skill. Inspect the actual artifacts. A summary score is not a tensor, and a tensor cache may omit inference state. With predictions alone, limit work to preliminary diagnosis and feature-extraction planning.
 2. Use the available execution environment to compute statistics and run interventions; do not claim to have inspected unseen data or run unavailable tools.
 3. Keep inference-time transformations independent of query ground-truth labels. Use labels for agreed development evaluation, not oracle sample-wise selection.
 4. In a fixed-checkpoint phase, preserve the declared weights and inference protocol. Treat auxiliary fitting, new modules, and retraining as explicitly scoped activities.

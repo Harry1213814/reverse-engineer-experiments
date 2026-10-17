@@ -1,10 +1,12 @@
-# Reverse Engineer Experiments
+# Deep Learning Tensor Reverse-Enhancement Skill: Finding Better Tensor Structures from Multiple Experiments
 
 **A research workflow that starts from experimental differences and uses controlled interventions to guide new module design.**
 
 [中文说明](README.md) · [Skill instructions](SKILL.md) · [Instructions for AI agents](AI_USAGE.md) · [MIT license](LICENSE)
 
-This is an instruction-based skill for AI coding and research assistants. It helps turn differences between completed experiments into hypotheses about tensor representations, test those hypotheses through interventions on an existing checkpoint, and use the evidence to inform transformations, fusion rules, or new modules.
+This is an instruction-based skill specifically for **deep-learning models**, used by AI coding and research assistants. It compares multiple training or ablation experiments, turns differences in intermediate tensors into testable hypotheses, and uses interventions on an existing checkpoint to inform feature enhancement, fusion, or new neural modules. It is not a general-purpose workflow for all engineering experiments or non-neural system optimization.
+
+Here, "tensor structures" means representation statistics and relationships, such as distributions, channel or branch relationships, spatiotemporal patterns, and spectra. It does not mean programming data structures or memory layouts. "Beneficial" is a hypothesis to investigate, not a promised outcome. The technical invocation name remains `reverse-engineer-experiments`.
 
 **It does not guarantee an improvement in downstream accuracy or any other metric.** It does not guarantee a useful intervention, a correct causal explanation, or a novel module. A successful intervention on frozen weights does not establish that a proposed module will improve results after training from scratch.
 
@@ -35,7 +37,9 @@ Tensor analysis normally means that an assistant writes and runs analysis script
 
 ## Scope and limitations
 
-The workflow is suited to deep-learning ablations, accessible checkpoints and intermediate features, multi-branch or temporal models, and transformation or fusion experiments. With only per-sample predictions, it can support output-complementarity and ensemble analysis, but cannot establish hidden-feature mechanisms. Regression or retrieval tasks can substitute their own metrics and statistical units.
+The workflow is suited to comparing deep-learning experiments and ablations, inspecting intermediate tensors, and testing feature interventions in multi-branch, multiscale, temporal, or other neural architectures. Classification, regression, and neural retrieval are in scope when the subject is a deep model's tensor representations. If only predictions from a deep model are available, start with preliminary diagnosis and a feature-extraction plan; do not claim tensor reverse enhancement has been completed.
+
+General engineering trials, traditional non-neural model tuning, rule-based ranking, and arbitrary score-combination tasks are out of scope. Having multiple experimental scores alone does not make this skill applicable.
 
 Aggregate scores alone are insufficient for tensor-level validation. Independent models need not assign the same meaning to matching channel indices. Previously reused test data cannot be relabeled as an untouched holdout. A chat-only assistant can help plan or review work, but cannot claim it ran an experiment.
 
@@ -68,8 +72,9 @@ For Windows PowerShell and environment-specific installer paths, see the [Chines
 ```text
 Use $reverse-engineer-experiments.
 
-Experiments and results: [paths and differences].
+Multiple deep-learning experiments and results: [paths and differences].
 Reference model, checkpoint, data and inference entry point: [paths].
+Tensor layers, axis semantics and structures to investigate: [details].
 Question and primary metric: [including aggregation and success criteria].
 Allowed intervention points: [layers, tensors or combination rules].
 Training/calibration permissions: [specific scope].
@@ -94,7 +99,7 @@ The skill instructions and references are primarily in Chinese; an assistant mus
 
 Typical outputs include a research agreement, reproducible baseline, candidate and failure records, intervention/control results, a frozen confirmation record, `EXPERIMENT_LOG.md`, and evidence-linked mathematical or module proposals.
 
-The skill has received structural checks and assistant application checks in two scenarios: frozen-checkpoint feature intervention and retrieval-system combination. Those checks concern workflow interpretation, **not downstream performance benchmarks**. No private experiment data, model weights, or cross-task accuracy benchmark are included.
+The skill has received structural checks and an assistant application check for frozen-checkpoint feature intervention. These concern workflow interpretation, **not downstream performance benchmarks**. An earlier version also received a retrieval-system combination scenario check; that check does not establish the current skill's applicability to general retrieval engineering or other non-deep-learning experiments. No private experiment data, model weights, or cross-task accuracy benchmark are included.
 
 No useful candidates, negative effects, and unresolved explanations are valid outcomes and must be reported. The project makes no claim that following the workflow will improve accuracy, generalization, efficiency, or scientific novelty.
 

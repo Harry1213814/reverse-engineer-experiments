@@ -1,17 +1,20 @@
 ---
 name: reverse-engineer-experiments
-description: "Use when a user wants to reverse-engineer completed experiments or ablations to identify useful feature relationships, test mechanisms with interventions, or design better transformations, fusion, ensembles, or component combinations. 适用于根据多次实验结果逆向推理、固定 checkpoint 特征干预、寻找有利变化和组合方法；不用于仅汇总指标或撰写结果段落。"
+description: "Use when comparing multiple deep-learning model experiments or ablations to reverse-engineer intermediate tensors, identify candidate beneficial representation structures, and test tensor enhancement through controlled checkpoint interventions that inform neural module design. 适用于利用多组深度学习实验结果逆向分析与增强 Tensor、寻找更有利的特征结构；不用于一般工程实验、非深度学习系统的组合优化或仅汇总指标。"
 license: MIT
 ---
 
-# 实验逆向与组合设计
+# 深度学习 Tensor 逆向增强 Skill：利用多组实验结果寻找更有利的 Tensor 数据结构
 
 定位：**从实验差异出发，通过受控干预指导新模块设计的研究工作流。** 不保证下游任务准确率或其他指标提高。固定 checkpoint 上的干预收益、机制解释和新模块从头训练后的效果是不同层次的证据。
 
-将已有实验差异转化为可检验的假设，再用可复现干预筛选变换或组合。输出应能回答：**改变了什么、模型是否使用它、怎样改变才有收益、证据支持到哪一层、下一步结构如何表达。**
+本 skill 专门面向深度学习模型。这里的 Tensor 数据结构指特征分布、通道或分支关系、时空模式、频谱等表示结构；“有利”是需要干预验证的候选属性，不是已确定的结论。
+
+将多组深度学习实验的 Tensor 差异转化为可检验的假设，再用可复现干预筛选增强变换或特征组合。输出应能回答：**改变了什么、模型是否使用它、怎样改变才有收益、证据支持到哪一层、下一步结构如何表达。**
 
 ## 执行边界
 
+- 先确认对象是深度学习模型及其 Tensor 表示。一般工程试验、非神经模型的调参或纯规则系统组合不适用；不要仅因有多组实验分数就套用本 skill。只有深度模型预测结果时，可先诊断并规划特征提取，不能声称已完成 Tensor 逆向增强。
 - 先读取已有记录和代码，继承用户已给出的授权与约束。仅讨论方案就交付方案；已授权执行就推进实验。不因本 skill 自动启动目标模式、重训练、远程任务或发布。
 - 不写死模型、分支数、数据集、硬件、搜索时长、成功数量或阈值。只询问会改变实验有效性且无法从材料确定的信息，其余说明假设并推进独立工作。
 - 固定权重实验中，辅助探针拟合与参数校准也要单独声明；禁止训练的范围不清时，不偷偷引入可学习选择器。逐样本变换可由推理时可得输入决定，不能由该样本真值、事后正确性或未来不可得信息决定。

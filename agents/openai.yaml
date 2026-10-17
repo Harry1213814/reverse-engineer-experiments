@@ -1,4 +1,4 @@
 interface:
-  display_name: "实验逆向与组合设计"
-  short_description: "从实验与消融差异提出假设，用受控干预筛选有效变换和组合方法"
-  default_prompt: "使用 $reverse-engineer-experiments，根据已有实验结果提出可检验的机制假设，设计受控干预与组合对照，明确开发和复核边界，并持续记录每一步的目的、结果和下一步。"
+  display_name: "深度学习 Tensor 逆向增强 Skill"
+  short_description: "利用多组深度学习实验结果，逆向分析并干预 Tensor，寻找更有利的特征结构"
+  default_prompt: "使用 $reverse-engineer-experiments，对比多组深度学习模型实验中的 Tensor 表示，提出候选有利结构及增强方法，通过原 checkpoint 下的受控干预检验假设，指导后续模块设计，并记录每一步的目的、结果和证据边界。"
